@@ -68,7 +68,7 @@ const Input = z.object({
 export const runAi = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => Input.parse(d))
   .handler(async ({ data }) => {
-    const key = process.env.LOVABLE_API_KEY;
+    const key = process.env['LOVABLE_API_KEY'];
     if (!key) return { ok: false as const, error: "AI is not configured." };
     const schema = schemas[data.mode];
     const body: Record<string, unknown> = {
@@ -79,7 +79,7 @@ export const runAi = createServerFn({ method: "POST" })
       store: false,
       stream: true,
     };
-    if (schema) body.text = { format: { type: "json_schema", name: data.mode, strict: true, schema } };
+    if (schema) body['text'] = { format: { type: "json_schema", name: data.mode, strict: true, schema } };
 
     const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
       method: "POST",

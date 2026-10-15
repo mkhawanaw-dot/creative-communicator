@@ -201,7 +201,7 @@ export function PlannerView() {
                   <tr key={i} className="border-b last:border-0">
                     <td className="w-36 px-2 py-1.5"><input className="field border-transparent bg-transparent font-mono text-xs hover:border-input" value={s.time} onChange={(e) => updSlot(i, "time", e.target.value)} /></td>
                     <td className="px-2 py-1.5"><input className="field border-transparent bg-transparent font-medium hover:border-input" value={s.task} onChange={(e) => updSlot(i, "task", e.target.value)} /></td>
-                    <td className="px-4 py-1.5"><span className={`rounded-full px-2 py-0.5 text-xs font-medium ${prioStyle[s.priority] ?? prioStyle.Break}`}>{s.priority}</span></td>
+                    <td className="px-4 py-1.5"><span className={`rounded-full px-2 py-0.5 text-xs font-medium ${prioStyle[s.priority] ?? prioStyle['Break']}`}>{s.priority}</span></td>
                     <td className="px-2 py-1.5"><input className="field border-transparent bg-transparent text-muted-foreground hover:border-input" value={s.note} onChange={(e) => updSlot(i, "note", e.target.value)} /></td>
                   </tr>
                 ))}
